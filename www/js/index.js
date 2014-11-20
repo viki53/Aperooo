@@ -162,7 +162,7 @@ var app = {
 
 			var li = document.createElement("li");
 			li.innerHTML = "<h2>" + (contact.displayName || contact.nickname || contact.name.formatted).htmlEntities() + "</h2>\
-				<p>" + app.cleanPhoneNumber(app.getPreferredOrFirst(contact.phoneNumbers)).htmlEntities() + "</p>";
+				<p>" + app.cleanPhoneNumber(app.getPreferredOrFirst(contact.phoneNumbers)).value.htmlEntities() + "</p>";
 
 			selected_contacts_ul.appendChild(li);
 		});
