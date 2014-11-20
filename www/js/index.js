@@ -45,9 +45,12 @@ var app = {
 					}
 				]
 			}
-		]
+		],
 	},
 	initialize: function () {
+		if (document.body !== "index") {
+			return;
+		}
 		this.bindEvents();
 	},
 	bindEvents: function () {
@@ -57,6 +60,7 @@ var app = {
 		else {
 			document.addEventListener("DOMContentLoaded", this.onDOMContentReady, false);
 		}
+		
 		document.getElementById("contacts-list-validate").addEventListener("click", app.onContactsListValidate, false);
 	},
 	onDeviceReady: function () {
@@ -162,7 +166,7 @@ var app = {
 
 			var li = document.createElement("li");
 			li.innerHTML = "<h2>" + (contact.displayName || contact.nickname || contact.name.formatted).htmlEntities() + "</h2>\
-				<p>" + app.cleanPhoneNumber(app.getPreferredOrFirst(contact.phoneNumbers)).value.htmlEntities() + "</p>";
+				<p>" + app.cleanPhoneNumber(app.getPreferredOrFirst(contact.phoneNumbers).value).htmlEntities() + "</p>";
 
 			selected_contacts_ul.appendChild(li);
 		});
@@ -231,8 +235,9 @@ var app = {
 				return phone_number.type.toLowerCase() === "mobile";
 			});
 			if (pref_number) {
-				selected_numbers.push(pref_number.value);
+				selected_numbers.push(app.cleanPhoneNumber(pref_number.value));
 			};
+
 		});
 
 		console.dir(selected_numbers);

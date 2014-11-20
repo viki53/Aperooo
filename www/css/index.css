@@ -112,6 +112,17 @@ a{
 	color: #fff;
 }
 
+#goto-settings{
+	position: fixed;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	background: url(../img/settings.svg) no-repeat center;
+	background-size: contain;
+}
+
 .hidden{
 	display: none;
 }
