@@ -128,7 +128,7 @@ var app = {
 
 		contacts_list.innerHTML = contacts_str.join("");
 
-		console.dir(contacts);
+		// console.dir(contacts);
 
 		var contacts_avatars = contacts_list.querySelectorAll(".avatar");
 		Array.prototype.forEach.call(contacts_avatars, function (img) {
@@ -161,7 +161,7 @@ var app = {
 			selected_contacts.push(contact);
 
 			var li = document.createElement("li");
-			li.innerHTML = "<h2>" + contact.displayName.htmlEntities() + "</h2>\
+			li.innerHTML = "<h2>" + (contact.displayName || contact.nickname || contact.name.formatted).htmlEntities() + "</h2>\
 				<p>" + app.cleanPhoneNumber(app.getPreferredOrFirst(contact.phoneNumbers)).htmlEntities() + "</p>";
 
 			selected_contacts_ul.appendChild(li);
@@ -261,7 +261,7 @@ var app = {
 	cleanPhoneNumber: function (number) {
 		return number.trim().split(" ").map(function (part) {
 			return part.trim();
-		}).join("").replace(/\(([\d]+)\)/g, "$1");
+		}).join("").replace(/\./g, "").replace(/\(([\d]+)\)/g, "$1");
 	}
 };
 
