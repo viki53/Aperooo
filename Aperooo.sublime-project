@@ -1,0 +1,17 @@
+{
+	"build_systems": [
+		{
+			"name": "Zip www folder",
+			"shell": true,
+			"working_dir": "${project_path:${folder}}",
+			"cmd": "rm -f Aperooo.zip && zip -r -X Aperooo.zip ./www/ -x *.git* -x *.DS_Store* -x *.less -x sftp-config.json -x *.sublime-* -x *.ai -x *.pdf"
+		}
+	],
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}

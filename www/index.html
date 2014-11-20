@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no,minimum-scale=1, width=device-width, height=device-height" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link href="http://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css" />
+		<title>Hello World</title>
+	</head>
+	<body>
+		<main id="contacts-viewer" class="screen">
+			<h1>Choisissez vos contacts</h1>
+			<ul id="contacts-list"></ul>
+			<div id="contacts-list-validator">
+				<button id="contacts-list-validate">Apérooo !</button>
+			</div>
+		</main>
+		<div id="message-interface" class="screen off-screen">
+			<h1>Envoyez votre message</h1>
+
+			<div id="message-interface-content">
+				<div>
+					<ul id="selected-contacts"></ul>
+				</div>
+				
+				<div>
+					<h2>Locatisation</h2>
+					<button id="get-location">Me localiser</button>
+					<div id="location-map-preview" class="hidden"></div>
+				</div>
+
+				<div>
+					<h2>Message</h2>
+					<button id="get-message">Message par défaut</button>
+					<textarea cols="50" rows="5" id="message-zone"></textarea>
+				</div>
+
+				<div>
+					<h2>Photo</h2>
+					<button id="get-picture">Prendre une photo</button>
+					<div id="picture-preview"></div>
+				</div>
+			</div>
+
+			<div id="message-validator">
+				<button id="message-validate">Envoyer</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/prototypes.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
