@@ -244,7 +244,7 @@ var app = {
 			return;
 		}
 		if (customFilter) {
-			list.filter(customFilter);
+			list = list.filter(customFilter);
 			if (!list || !list.length) {
 				return;
 			}
