@@ -5,4 +5,6 @@
     <author email="contact@viki53.eu" href="http://viki53.eu">viki53</author>
     <content src="index.html" />
     <access origin="*" />
+
+    <icon src="res/icon.png" />
 </widget>
