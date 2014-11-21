@@ -39,7 +39,7 @@ a{
 	vertical-align: middle;
 }
 #contacts-list>li>.contact:active{
-	background-color: red;
+	background-color: #c8e6c9;
 }
 #contacts-list>li>.contact>.avatar{
 	float: left;
@@ -54,7 +54,8 @@ a{
 	width: 3em;
 	text-align: center;
 	vertical-align: middle;
-	background-color: green;
+	background-color: #4caf50;
+	color: #fff;
 }
 #contacts-list>li>.check>input[type="checkbox"]{
 	-webkit-appearance: none;
@@ -63,33 +64,34 @@ a{
 	font-size: 1em;
 	width: 1em;
 	height: 1em;
-	background-color: #fff;
+	background-color: #a5d6a7;
 	border-radius: .25em;
 }
 #contacts-list>li>.check>input[type="checkbox"]:checked{
-	background-color: blueviolet;
+	background-color: #512da8;
 }
 #contacts-list>li>.check>input[type="checkbox"]:focus{
 	outline: none;
 }
-#contacts-list-validator{
+#contacts-list-validator,
+#message-validator{
 	position: fixed;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	height: 3em;
 	text-align: center;
-	background: cyan;
 }
-#contacts-list-validate{
+#contacts-list-validate, 
+#message-validate{
 	-webkit-appearance: none;
 	display: block;
-	margin: 0;
 	font-size: 1.5em;
 	padding: .5em;
+	margin: 0;
 	width: 100%;
 	line-height: 1;
-	background-color: yellow;
+	background-color: #4caf50;
+	color: #fff;
 	border: none;
 }
 
@@ -105,17 +107,28 @@ a{
 	transition: all .3s ease-in-out;
 }
 .screen>h1{
+	position:fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
 	font-size: 1.5em;
 	padding: .5em;
 	text-align: center;
-	background-color: fuchsia;
-	color: #fff;
+	background-color: #ffc107;
+	color: #000;
+}
+.screen>h1+*{
+	margin-top: 3em;
+	margin-bottom: 3em;
+	overflow-y: auto;
 }
 
 #goto-settings{
 	position: fixed;
 	top: 0;
 	right: 0;
+	z-index: 100;
 	display: block;
 	width: 3em;
 	height: 3em;
@@ -138,10 +151,50 @@ a{
 #message-interface{
 	z-index: 5;
 }
+#message-interface-content{
+	margin-bottom: 3em;
+}
+#message-interface-content>div{
+	padding: 1em;
+}
+#message-interface-content>div+div{
+	border-top: 1px solid #222;
+}
 
 #location-map-preview{
 	padding-top: 50%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+
+
+
+#settings-list>li{
+	padding: 1em;
+}
+#message-interface-content button,
+#settings-page button{
+	-webkit-appearance: none;
+	display: block;
+	font-size: 1.5em;
+	padding: .5em;
+	margin: 1em 0;
+	width: 100%;
+	line-height: 1;
+	background-color: #2196F3;
+	border: none;
+}
+#settings-page textarea,
+#settings-page select,
+#message-interface-content textarea,
+#message-interface-content select{
+	display: block;
+	font-size: 1.5em;
+	padding: .5em;
+	margin: 1em 0;
+	width: 100%;
+	background-color: #fff;
+	border: none;
 }
