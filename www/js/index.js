@@ -48,9 +48,6 @@ var app = {
 		],
 	},
 	initialize: function () {
-		if (document.body !== "index") {
-			return;
-		}
 		this.bindEvents();
 	},
 	bindEvents: function () {
@@ -60,7 +57,7 @@ var app = {
 		else {
 			document.addEventListener("DOMContentLoaded", this.onDOMContentReady, false);
 		}
-		
+
 		document.getElementById("contacts-list-validate").addEventListener("click", app.onContactsListValidate, false);
 	},
 	onDeviceReady: function () {
@@ -242,7 +239,13 @@ var app = {
 
 		console.dir(selected_numbers);
 
-		SMS.sendSMS(selected_numbers, (message || "Aperooo !") + (location ? " @ " + location.latitude + "," + location.longitude : ""), function () { console.info("SMS success"); alert("SMS sent!"); }, function (error) { console.error(error); });
+		SMS.sendSMS(selected_numbers, (message || "Aperooo !") + (location ? " https://maps.google.fr/?daddr=" + location.latitude + "," + location.longitude + "&saddr=Ma+Position&zoom=15" : ""), function () {
+			console.info("SMS success");
+			alert("SMS sent!");
+			document.getElementById("message-interface").classList.add("off-screen");
+		}, function (error) {
+			console.error(error);
+		});
 	},
 	getPreferredOrFirst: function(list, customFilter) {
 		if (!list || !list.length) {
@@ -270,4 +273,6 @@ var app = {
 	}
 };
 
-app.initialize();
+if (document.body.id === "index") {
+	app.initialize();
+}
